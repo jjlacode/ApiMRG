@@ -1,0 +1,15 @@
+server:
+  port: 8899
+spring:
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/reactivedb
+  graphql:
+    cors:
+      allowed-origins: "*"
+    websocket:
+      path: "/graphql"
+    graphiql:
+      enabled: true
+  mvc:
+    dispatch-options-request: true

@@ -1,0 +1,57 @@
+type Query {
+
+	listTasks : [DtoTask]
+	pendingTasks : [DtoTask]
+	getTask(filter : UpdateDtoTask) : DtoTask
+	listTasksByUser(user : String) : [DtoTask]
+	pendingTasksByUser(user : String) : [DtoTask]
+	
+	 
+}
+
+type Mutation {
+
+	updateTask(dto : UpdateDtoTask) : DtoTask
+	createTask(dto : InputDtoTask) : DtoTask
+	deleteTask(id : String) : Boolean
+	
+}
+
+type Subscription {
+
+	subsListTasks : DtoTask
+	subsListTasksByUser(user : String) : DtoTask
+	subsPendingTasks : DtoTask
+	subsPendingTasksByUser(user : String) : DtoTask
+}
+
+type DtoTask {
+
+	id : String
+	title : String
+	description : String
+	completada : Int
+	user : String
+	fechaCreacion : String
+	fechaFinalizacion : String
+}
+
+input UpdateDtoTask {
+
+	id : String
+	title : String
+	description : String
+	completada : Int
+	user : String
+	fechaCreacion : String
+	fechaFinalizacion : String
+}
+
+input InputDtoTask {
+
+	title : String
+	description : String
+	user : String
+}
+
+
